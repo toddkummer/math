@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>Math Time</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css'>
+  <script defer src='https://use.fontawesome.com/releases/v5.14.0/js/all.js'></script>
+  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
+  <script src="./scripts/application.js" type='module' ></script>
 </head>
 <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
+<section class='section'>
+  <div class='container' data-controller='math'>
+    <h1 class='title'>
+      Multiplication Practice
+    </h1>
+    <div class='field'>
+      <label data-math-target='equation' class='label'>6 * 5</label>
     </div>
-  </section>
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" data-math-target="answer" type="text" placeholder="Answer">
+      </div>
+      <div class="control">
+        <a class="button is-info" data-action="click->math#greet">
+          Submit
+        </a>
+      </div>
+    </div>
+    <div data-math-target='result' class="notification is-danger is-hidden">
+      <button class="delete"></button>
+      Answer was incorrect
+    </div>
+  </div>
+</section>
 </body>
 </html>
+
