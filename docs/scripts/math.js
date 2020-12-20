@@ -13,7 +13,7 @@ class MathController extends Stimulus.Controller {
     return Math.floor(Math.random() * 10) + 1
   }
 
-  greet() {
+  submit() {
     const element = this.answerTarget
     const answer = parseInt(element.value)
     this.resultTarget.classList.remove('is-hidden')
