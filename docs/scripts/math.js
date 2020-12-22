@@ -1,3 +1,4 @@
+/* global Stimulus */
 class MathController extends Stimulus.Controller {
   static get targets() {
     return ['answer', 'equation', 'result']
