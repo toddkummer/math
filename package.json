@@ -14,6 +14,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "dart-sass": "^1.25.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-config-standard": "^16.0.2",
@@ -23,12 +24,14 @@
     "eslint-plugin-promise": "^4.2.1",
     "html-webpack-plugin": "^4.5.0",
     "prettier": "^2.2.1",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode development",
     "lint": "eslint docs"
   }
 }
