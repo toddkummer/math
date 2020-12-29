@@ -6,33 +6,79 @@
   <title>Math Time</title>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css'>
   <script defer src='https://use.fontawesome.com/releases/v5.14.0/js/all.js'></script>
-  <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js"></script>
-  <script src="./scripts/application.js" type='module' ></script>
+  <script src='https://unpkg.com/stimulus/dist/stimulus.umd.js'></script>
+  <script src='./scripts/application.js' type='module'></script>
 </head>
 <body>
 <section class='section'>
   <div class='container' data-controller='math'>
-    <h1 class='title'>
-      Multiplication Practice
-    </h1>
-    <div class='field'>
-      <label data-math-target='equation' class='label'>6 * 5</label>
+    <div class='tabs is-toggle is-toggle-rounded'>
+      <ul>
+        <li class='is-active' data-math-target='practiceTab'>
+          <a data-action='math#startPractice'>
+            <span class='icon is-small'><i class='fas fa-pencil-ruler'></i></span>
+            <span>Practice</span>
+          </a>
+        </li>
+        <li data-math-target='testTab'>
+          <a data-action='math#startTest'>
+            <span class='icon is-small'><i class='fas fa-apple-alt'></i></span>
+            <span>Test</span>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="field has-addons">
-      <div class="control">
-        <input class="input" data-math-target="answer" type="text" placeholder="Answer">
+    <div data-math-target='practice'>
+      <h1 class='title'>
+        Multiplication Practice
+      </h1>
+      <div class='field'>
+        <label data-math-target='equation' class='label'>6 * 5</label>
       </div>
-      <div class="control">
-        <a class="button is-info" data-action="click->math#submit">
-          Submit
-        </a>
+      <div class='field has-addons'>
+        <div class='control'>
+          <input class='input' data-math-target='answer' type='text' placeholder='Answer'>
+        </div>
+        <div class='control'>
+          <a class='button is-info' data-action='click->math#submit'>
+            Submit
+          </a>
+        </div>
+      </div>
+      <div data-math-target='result' class='notification is-danger is-hidden'>
+        <button class='delete'></button>
+        Answer was incorrect
       </div>
     </div>
-    <div data-math-target='result' class="notification is-danger is-hidden">
-      <button class="delete"></button>
-      Answer was incorrect
+    <div data-math-target='test' class = 'is-hidden'>
+      <h1 class='title'>
+        Multiplication Test
+      </h1>
+      <div data-math-target='testList'>
+        <div data-controller='equation' data-math-target='testEquation' class="field has-addons equation">
+          <p class="control">
+            <a  style='min-width:84px' data-equation-target='problem' class="button is-static">
+              equation
+            </a>
+          </p>
+          <p class="control">
+            <input data-equation-target='answer' class="input" type="text" placeholder="Answer">
+          </p>
+        </div>
+      </div>
+      <div class='buttons'>
+        <button class="button is-primary mt-3" data-math-target='testSubmit' data-action='math#finishTest'>Submit</button>
+        <button class="button is-link mt-3 is-hidden" data-math-target='testRestart' data-action='math#restartTest'>Try Again</button>
+      </div>
+
+        <div class="notification is-info is-hidden mt-3" data-math-target='testResults'>
+        </div>
+
+
     </div>
   </div>
+
+
 </section>
 </body>
 </html>
