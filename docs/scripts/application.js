@@ -1,4 +1,5 @@
 /* global Stimulus */
-import { MathController } from './math.js'
+import { MathController, EquationController } from './math.js'
 const application = Stimulus.Application.start()
 application.register('math', MathController)
+application.register('equation', EquationController)
