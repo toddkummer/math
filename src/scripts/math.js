@@ -1,5 +1,6 @@
-/* global Stimulus */
-class EquationController extends Stimulus.Controller {
+import { Controller } from 'stimulus'
+
+class EquationController extends Controller {
   static get targets() {
     return ['problem', 'answer']
   }
@@ -50,7 +51,7 @@ class EquationController extends Stimulus.Controller {
     this.generateProblem()
   }
 }
-class MathController extends Stimulus.Controller {
+class MathController extends Controller {
   static get targets() {
     return [
       'answer',
