@@ -35,6 +35,6 @@
   },
   "scripts": {
     "build": "webpack --mode development",
-    "lint": "eslint docs"
+    "lint": "eslint src"
   }
 }
