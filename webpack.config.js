@@ -2,10 +2,15 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/scripts/application.js',
+  entry: {
+    application: './src/scripts/application.js',
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      template: './src/index.html',
+      inject: true,
+      chunks: ['application'],
+      filename: 'index.html',
     }),
   ],
   output: {
