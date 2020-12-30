@@ -72,10 +72,17 @@ class MathController extends Stimulus.Controller {
     this.a = this.randomNumber()
     this.b = this.randomNumber()
     this.equationTarget.textContent = `${this.a} * ${this.b}`
+    this.answerTarget.focus()
   }
 
   randomNumber() {
     return Math.floor(Math.random() * 10) + 1
+  }
+
+  submitOnEnter(event) {
+    if (event.key === 'Enter') {
+      this.submit()
+    }
   }
 
   submit() {
