@@ -1,4 +1,4 @@
-import { Application } from 'stimulus'
+import { Application } from 'stimulus-repo/packages/stimulus'
 import { MathController, EquationController } from './math.js'
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faAppleAlt, faPencilRuler } from '@fortawesome/free-solid-svg-icons'
