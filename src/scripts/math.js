@@ -1,13 +1,8 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
 
 class EquationController extends Controller {
-  static get targets() {
-    return ['problem', 'answer']
-  }
-
-  static get parent() {
-    return 'math'
-  }
+  static targets = ['problem', 'answer']
+  static parent = 'math'
 
   randomNumber() {
     return Math.floor(Math.random() * 10) + 1
@@ -56,26 +51,22 @@ class EquationController extends Controller {
   }
 }
 class MathController extends Controller {
-  static get targets() {
-    return [
-      'answer',
-      'equation',
-      'result',
-      'practiceTab',
-      'testTab',
-      'practice',
-      'test',
-      'testList',
-      'testSubmit',
-      'testEquation',
-      'testResults',
-      'testRestart',
-    ]
-  }
+  static targets = [
+    'answer',
+    'equation',
+    'result',
+    'practiceTab',
+    'testTab',
+    'practice',
+    'test',
+    'testList',
+    'testSubmit',
+    'testEquation',
+    'testResults',
+    'testRestart',
+  ]
 
-  static get children() {
-    return ['equation']
-  }
+  static children = ['equation']
 
   connect() {
     this.a = this.randomNumber()
