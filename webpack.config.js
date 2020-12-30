@@ -16,7 +16,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: 'application.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'docs'),
   },
 
