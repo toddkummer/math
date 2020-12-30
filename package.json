@@ -29,13 +29,14 @@
     "prettier": "^2.2.1",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
-    "stimulus": "^2.0.0",
+    "stimulus-repo": "toddkummer/stimulus#parent-child-controllers",
     "style-loader": "^2.0.0",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0"
   },
   "scripts": {
     "build": "webpack --mode development",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "stimulus-build": "cd node_modules/stimulus-repo && yarn install && yarn build"
   }
 }
