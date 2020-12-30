@@ -24,28 +24,30 @@
         </li>
       </ul>
     </div>
-    <div data-math-target='practice'>
+
+    <div data-controller='practice'>
       <h1 class='title'>
         Multiplication Practice
       </h1>
       <div class='field'>
-        <label data-math-target='equation' class='label'>6 * 5</label>
+        <label data-practice-target='equation' class='label'>6 * 5</label>
       </div>
       <div class='field has-addons'>
         <div class='control'>
-          <input class='input' data-math-target='answer' type='text' placeholder='Answer' data-action="keypress->math#submitOnEnter">
+          <input class='input' data-practice-target='answer' type='text' placeholder='Answer' data-action="keypress->practice#submitOnEnter">
         </div>
         <div class='control'>
-          <a class='button is-info' data-action='click->math#submit'>
+          <a class='button is-info' data-action='click->practice#submit'>
             Submit
           </a>
         </div>
       </div>
-      <div data-math-target='result' class='notification is-danger is-hidden'>
+      <div data-practice-target='result' class='notification is-danger is-hidden'>
         <button class='delete'></button>
         Answer was incorrect
       </div>
     </div>
+
     <div data-math-target='test' class = 'is-hidden'>
       <h1 class='title'>
         Multiplication Test
