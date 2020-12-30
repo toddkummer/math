@@ -26,6 +26,7 @@ export class EquationController extends Controller {
 
   wrong() {
     this.problemTarget.classList.replace('is-static', 'is-danger')
+    this.answerTarget.classList.add('is-danger')
     this.makeReadOnly()
   }
 
