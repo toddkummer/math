@@ -1,8 +1,12 @@
-import { Controller } from 'stimulus'
+import { Controller } from 'stimulus-repo/packages/stimulus'
 
 class EquationController extends Controller {
   static get targets() {
     return ['problem', 'answer']
+  }
+
+  static get parent() {
+    return 'math'
   }
 
   randomNumber() {
@@ -67,6 +71,10 @@ class MathController extends Controller {
       'testResults',
       'testRestart',
     ]
+  }
+
+  static get children() {
+    return ['equation']
   }
 
   connect() {
@@ -135,19 +143,10 @@ class MathController extends Controller {
     this.testTarget.classList.add('is-hidden')
   }
 
-  get testEquationControllers() {
-    return this.testEquationTargets.map((element) => {
-      return this.application.getControllerForElementAndIdentifier(
-        element,
-        'equation'
-      )
-    })
-  }
-
   finishTest() {
     console.log('Test has finished')
     let correct = 0
-    this.testEquationControllers.forEach((equation) => {
+    this.equationChildren.forEach((equation) => {
       if (equation.correct()) {
         console.log('equation is correct')
         equation.right()
@@ -165,7 +164,7 @@ class MathController extends Controller {
   }
 
   restartTest() {
-    this.testEquationControllers.forEach((equation) => equation.reset())
+    this.equationChildren.forEach((equation) => equation.reset())
     this.testSubmitTarget.classList.replace('is-static', 'is-primary')
     this.testResultsTarget.classList.add('is-hidden')
     this.testRestartTarget.classList.add('is-hidden')
