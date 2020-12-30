@@ -82,6 +82,7 @@ export class MathController extends Controller {
     this.practiceTabTarget.classList.add('is-active')
     this.practiceTarget.classList.remove('is-hidden')
     this.testTarget.classList.add('is-hidden')
+    this.answerTarget.focus()
   }
 
   finishTest() {
