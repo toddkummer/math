@@ -2,7 +2,7 @@ import { Controller } from 'stimulus-repo/packages/stimulus'
 
 export class EquationController extends Controller {
   static targets = ['problem', 'answer']
-  static parent = 'math'
+  static parent = 'quiz'
 
   randomNumber() {
     return Math.floor(Math.random() * 10) + 1
@@ -46,6 +46,7 @@ export class EquationController extends Controller {
   reset() {
     this.problemTarget.classList.remove('is-danger', 'is-success')
     this.problemTarget.classList.add('is-static')
+    this.answerTarget.classList.remove('is-danger')
     this.answerTarget.value = ''
     this.removeReadOnly()
     this.generateProblem()
