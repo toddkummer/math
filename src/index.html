@@ -48,12 +48,12 @@
       </div>
     </div>
 
-    <div data-math-target='test' class = 'is-hidden'>
+    <div data-controller='quiz' class = 'is-hidden'>
       <h1 class='title'>
         Multiplication Test
       </h1>
-      <div data-math-target='testList'>
-        <div data-controller='equation' data-math-target='testEquation' class="field has-addons equation">
+      <div data-quiz-target='questions'>
+        <div data-controller='equation' data-quiz-target='testEquation' class="field has-addons equation">
           <p class="control">
             <a  style='min-width:84px' data-equation-target='problem' class="button is-static">
               equation
@@ -65,17 +65,13 @@
         </div>
       </div>
       <div class='buttons'>
-        <button class="button is-primary mt-3" data-math-target='testSubmit' data-action='math#finishTest'>Submit</button>
-        <button class="button is-link mt-3 is-hidden" data-math-target='testRestart' data-action='math#restartTest'>Try Again</button>
+        <button class="button is-primary mt-3" data-quiz-target='submit' data-action='quiz#submit'>Submit</button>
+        <button class="button is-link mt-3 is-hidden" data-quiz-target='restart' data-action='quiz#restart'>Try Again</button>
       </div>
 
-        <div class="notification is-info is-hidden mt-3" data-math-target='testResults'>
-        </div>
-
-
+      <div class="notification is-info is-hidden mt-3" data-quiz-target='results'></div>
     </div>
   </div>
-
 
 </section>
 </body>
