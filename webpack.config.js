@@ -6,6 +6,10 @@ module.exports = {
   entry: {
     application: './src/scripts/application.js',
   },
+  // devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './docs',
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
