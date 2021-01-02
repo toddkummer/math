@@ -13,6 +13,20 @@ export class QuizController extends Controller {
     this.element.classList.add('is-hidden')
   }
 
+  switchToMultiplication() {
+    this.equationChildren.forEach((equation) => {
+      equation.switchToMultiplication()
+    })
+    this.restart()
+  }
+
+  switchToDivision() {
+    this.equationChildren.forEach((equation) => {
+      equation.switchToDivision()
+    })
+    this.restart()
+  }
+
   submit() {
     console.log('Test has finished')
     let correct = 0
