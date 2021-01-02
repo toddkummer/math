@@ -5,9 +5,33 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>Math Time</title>
 </head>
-<body>
+<body data-controller='math'>
+<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a data-action='math#switchToMultiplication' data-math-target='multiplicationTab' class="navbar-item is-active">
+        Multiplication
+      </a>
+
+      <a data-action='math#switchToDivision' data-math-target='divisionTab' class="navbar-item">
+        Division
+      </a>
+    </div>
+    <div class="navbar-end">
+    </div>
+  </div>
+</nav>
 <section class='section'>
-  <div class='container' data-controller='math'>
+  <div class='container'>
     <div class='tabs is-toggle is-toggle-rounded'>
       <ul>
         <li class='is-active' data-math-target='practiceTab'>
@@ -26,9 +50,6 @@
     </div>
 
     <div data-controller='practice'>
-      <h1 class='title'>
-        Multiplication Practice
-      </h1>
       <div class='field'>
         <label data-practice-target='equation' class='label'>6 * 5</label>
       </div>
@@ -49,9 +70,6 @@
     </div>
 
     <div data-controller='quiz' class = 'is-hidden'>
-      <h1 class='title'>
-        Multiplication Test
-      </h1>
       <div data-quiz-target='questions'>
         <div data-controller='equation' data-quiz-target='testEquation' class="field has-addons equation">
           <p class="control">

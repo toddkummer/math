@@ -1,18 +1,31 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
+import { Multiplication } from './multiplication'
+import { Division } from './division'
 
 export class PracticeController extends Controller {
   static parent = 'math'
   static targets = ['answer', 'equation', 'result']
 
-  connect() {
-    this.a = this.randomNumber()
-    this.b = this.randomNumber()
-    this.equationTarget.textContent = `${this.a} * ${this.b}`
-    this.answerTarget.focus()
+  initialize() {
+    this.multiplication = new Multiplication()
+    this.division = new Division()
+    this.switchToMultiplication()
   }
 
-  randomNumber() {
-    return Math.floor(Math.random() * 10) + 1
+  switchToMultiplication() {
+    this.function = this.multiplication
+    this.connect()
+  }
+
+  switchToDivision() {
+    this.function = this.division
+    this.connect()
+  }
+
+  connect() {
+    this.function.init()
+    this.equationTarget.textContent = this.function.description()
+    this.answerTarget.focus()
   }
 
   show() {
@@ -35,7 +48,7 @@ export class PracticeController extends Controller {
     const answer = parseInt(element.value)
     this.resultTarget.classList.remove('is-hidden')
     this.answerTarget.value = ''
-    if (answer === this.a * this.b) {
+    if (answer === this.function.answer()) {
       this.correctAnswer()
     } else {
       this.wrongAnswer(answer)
@@ -54,9 +67,7 @@ export class PracticeController extends Controller {
 
   wrongAnswer(answer) {
     console.log(`Your answer is incorrect`)
-    this.resultTarget.textContent = `The correct answer is ${
-      this.a * this.b
-    }.     Your answer was ${answer}. `
+    this.resultTarget.textContent = `The correct answer is ${this.function.answer()}.     Your answer was ${answer}. `
     this.resultTarget.classList.replace('is-success', 'is-danger')
   }
 }
