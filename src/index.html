@@ -5,7 +5,7 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>Math Time</title>
 </head>
-<body data-controller='math'>
+<body data-controller='math' data-math-operation-value='multiplication'>
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
@@ -18,11 +18,11 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a data-action='math#switchToMultiplication' data-math-target='multiplicationTab' class="navbar-item is-active">
+      <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='multiplication'>
         Multiplication
       </a>
 
-      <a data-action='math#switchToDivision' data-math-target='divisionTab' class="navbar-item">
+      <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='division'>
         Division
       </a>
     </div>
