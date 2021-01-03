@@ -1,7 +1,14 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
 
 export class QuizController extends Controller {
-  static targets = ['questions', 'submit', 'results', 'restart']
+  static targets = [
+    'questionTemplate',
+    'column',
+    'submit',
+    'results',
+    'restart',
+  ]
+
   static parent = 'math'
   static children = ['equation']
 
@@ -58,10 +65,17 @@ export class QuizController extends Controller {
 
   generateQuestions() {
     if (!this.questionsGenerated) {
-      for (let counter = 1; counter < 20; counter++) {
-        const clone = this.equationChild.element.cloneNode(true)
-        this.questionsTarget.appendChild(clone)
-      }
+      const template = this.questionTemplateTarget.content
+      const columns = this.columnTargets
+      const questionsPerColumn = 20 / columns.length
+
+      columns.forEach((column) => {
+        for (let counter = 1; counter <= questionsPerColumn; counter++) {
+          const clone = template.cloneNode(true)
+          column.appendChild(clone)
+        }
+      })
+
       this.questionsGenerated = true
     }
   }

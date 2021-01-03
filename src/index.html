@@ -70,8 +70,8 @@
     </div>
 
     <div data-controller='quiz' class = 'is-hidden'>
-      <div data-quiz-target='questions'>
-        <div data-controller='equation' data-quiz-target='testEquation' class="field has-addons equation">
+      <template data-quiz-target='questionTemplate'>
+        <div data-controller='equation' class="field has-addons equation">
           <p class="control">
             <a  style='min-width:84px' data-equation-target='problem' class="button is-static">
               equation
@@ -80,6 +80,12 @@
           <p class="control">
             <input data-equation-target='answer' class="input" type="text" placeholder="Answer">
           </p>
+        </div>
+      </template>
+      <div data-quiz-target='questions'>
+        <div class='columns'>
+          <div class='column' data-quiz-target='column'></div>
+          <div class='column' data-quiz-target='column'></div>
         </div>
       </div>
       <div class='buttons'>
