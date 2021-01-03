@@ -39,6 +39,7 @@
   },
   "scripts": {
     "build": "webpack --mode development",
+    "prod-build": "webpack --mode production",
     "lint": "eslint src",
     "start": "webpack serve --open",
     "stimulus-build": "cd node_modules/stimulus-repo && yarn install && yarn build"
