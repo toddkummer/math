@@ -23,7 +23,17 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'docs'),
   },
-
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
