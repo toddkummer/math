@@ -1,4 +1,6 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
+import { Multiplication } from './multiplication'
+import { Division } from './division'
 
 export class MathController extends Controller {
   static targets = ['practiceTab', 'testTab', 'operationTab']
@@ -6,8 +8,14 @@ export class MathController extends Controller {
   static values = { operation: String }
   static children = ['practice', 'quiz']
 
+  static operations = { multiplication: Multiplication, division: Division }
+
   connect() {
     this.toggleTabs()
+  }
+
+  operationClass() {
+    return this.constructor.operations[this.operationValue]
   }
 
   startTest() {
@@ -27,22 +35,9 @@ export class MathController extends Controller {
 
   switchOperation(event) {
     this.operationValue = event.target.dataset.operation
-    if (this.operationValue === 'multiplication') {
-      this.switchToMultiplication()
-    } else {
-      this.switchToDivision()
-    }
+    this.practiceChild.switchOperation(this.operationClass())
+    this.quizChild.switchOperation(this.operationClass())
     this.toggleTabs()
-  }
-
-  switchToMultiplication() {
-    this.practiceChild.switchToMultiplication()
-    this.quizChild.switchToMultiplication()
-  }
-
-  switchToDivision() {
-    this.practiceChild.switchToDivision()
-    this.quizChild.switchToDivision()
   }
 
   toggleTabs() {

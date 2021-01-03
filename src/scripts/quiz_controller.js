@@ -20,17 +20,10 @@ export class QuizController extends Controller {
     this.element.classList.add('is-hidden')
   }
 
-  switchToMultiplication() {
-    this.equationChildren.forEach((equation) => {
-      equation.switchToMultiplication()
-    })
-    this.restart()
-  }
-
-  switchToDivision() {
-    this.equationChildren.forEach((equation) => {
-      equation.switchToDivision()
-    })
+  switchOperation(OperationClass) {
+    this.equationChildren.forEach((equation) =>
+      equation.switchOperation(OperationClass)
+    )
     this.restart()
   }
 

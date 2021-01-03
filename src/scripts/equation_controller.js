@@ -1,28 +1,20 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
 import { Multiplication } from './multiplication'
-import { Division } from './division'
 export class EquationController extends Controller {
   static targets = ['problem', 'answer']
   static parent = 'quiz'
 
   initialize() {
-    this.multiplication = new Multiplication()
-    this.division = new Division()
-    this.switchToMultiplication()
+    this.operation = new Multiplication()
   }
 
-  switchToMultiplication() {
-    this.function = this.multiplication
-  }
-
-  switchToDivision() {
-    this.function = this.division
+  switchOperation(OperationClass) {
+    this.operation = new OperationClass()
   }
 
   generateProblem() {
-    this.function.init()
-    console.log('generate problem called' + this.function.description())
-    this.problemTarget.textContent = this.function.description()
+    this.operation.init()
+    this.problemTarget.textContent = this.operation.description()
   }
 
   connect() {
@@ -32,7 +24,7 @@ export class EquationController extends Controller {
   correct() {
     const element = this.answerTarget
     const answer = parseInt(element.value)
-    return answer === this.function.answer()
+    return answer === this.operation.answer()
   }
 
   wrong() {
