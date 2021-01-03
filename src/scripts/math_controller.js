@@ -1,14 +1,14 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
 
 export class MathController extends Controller {
-  static targets = [
-    'practiceTab',
-    'testTab',
-    'multiplicationTab',
-    'divisionTab',
-  ]
+  static targets = ['practiceTab', 'testTab', 'operationTab']
 
+  static values = { operation: String }
   static children = ['practice', 'quiz']
+
+  connect() {
+    this.toggleTabs()
+  }
 
   startTest() {
     this.practiceTabTarget.classList.remove('is-active')
@@ -25,22 +25,33 @@ export class MathController extends Controller {
     this.quizChild.hide()
   }
 
+  switchOperation(event) {
+    this.operationValue = event.target.dataset.operation
+    if (this.operationValue === 'multiplication') {
+      this.switchToMultiplication()
+    } else {
+      this.switchToDivision()
+    }
+    this.toggleTabs()
+  }
+
   switchToMultiplication() {
-    console.log('Switching to Multiplication')
     this.practiceChild.switchToMultiplication()
     this.quizChild.switchToMultiplication()
-    this.toggleTabs()
   }
 
   switchToDivision() {
-    console.log('Switching to Division')
     this.practiceChild.switchToDivision()
     this.quizChild.switchToDivision()
-    this.toggleTabs()
   }
 
   toggleTabs() {
-    this.multiplicationTabTarget.classList.toggle('is-active')
-    this.divisionTabTarget.classList.toggle('is-active')
+    this.operationTabTargets.forEach((tab) => {
+      if (this.operationValue === tab.dataset.operation) {
+        tab.classList.add('is-active')
+      } else {
+        tab.classList.remove('is-active')
+      }
+    })
   }
 }
