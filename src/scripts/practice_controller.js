@@ -9,6 +9,10 @@ export class PracticeController extends Controller {
     this.operation = new Multiplication()
   }
 
+  connect() {
+    this.generateProblem()
+  }
+
   switchOperation(OperationClass) {
     this.operation = new OperationClass()
     this.generateProblem()
@@ -18,10 +22,6 @@ export class PracticeController extends Controller {
     this.operation.init()
     this.equationTarget.textContent = this.operation.description()
     this.answerTarget.focus()
-  }
-
-  connect() {
-    this.generateProblem()
   }
 
   show() {

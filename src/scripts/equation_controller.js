@@ -8,6 +8,10 @@ export class EquationController extends Controller {
     this.operation = new Multiplication()
   }
 
+  connect() {
+    this.generateProblem()
+  }
+
   switchOperation(OperationClass) {
     this.operation = new OperationClass()
   }
@@ -15,10 +19,6 @@ export class EquationController extends Controller {
   generateProblem() {
     this.operation.init()
     this.problemTarget.textContent = this.operation.description()
-  }
-
-  connect() {
-    this.generateProblem()
   }
 
   correct() {
