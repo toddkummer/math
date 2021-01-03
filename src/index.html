@@ -6,27 +6,30 @@
   <title>Math Time</title>
 </head>
 <body data-controller='math' data-math-operation-value='multiplication'>
-<nav class="navbar is-info" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-    </a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='multiplication'>
-        Multiplication
-      </a>
-
-      <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='division'>
-        Division
+<nav class="navbar is-info" role="navigation" aria-label="main navigation" data-controller='navigation-bar'>
+  <div class='container'>
+    <div class="navbar-brand">
+      <div class="navbar-item has-text-weight-bold is-size-4">
+        Math Time
+      </div>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-action="navigation-bar#toggle" data-navigation-bar-target="burger">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
     </div>
-    <div class="navbar-end">
+    <div class="navbar-menu" data-navigation-bar-target="menu">
+      <div class="navbar-start">
+        <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='multiplication'>
+          Multiplication
+        </a>
+
+        <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='division'>
+          Division
+        </a>
+      </div>
+      <div class="navbar-end">
+      </div>
     </div>
   </div>
 </nav>
