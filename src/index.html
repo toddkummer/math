@@ -62,10 +62,10 @@
   </div>
 </section>
 
-<section class='section is-hidden' data-controller='quiz'>
+<section class='section pt-3 is-hidden' data-controller='quiz'>
   <div class='container'>
     <template data-quiz-target='questionTemplate'>
-      <div data-controller='equation' class="field has-addons equation">
+      <div data-controller='equation' class="field has-addons mb-2">
         <p class="control">
           <a  style='min-width:84px' data-equation-target='problem' class="button is-static">
             equation
@@ -77,17 +77,17 @@
       </div>
     </template>
 
-    <div class='columns' data-quiz-target='questions'>
-      <div class='column' data-quiz-target='column'></div>
-      <div class='column' data-quiz-target='column'></div>
+    <div class='columns mb-0' data-quiz-target='questions'>
+      <div class='column pb-2' data-quiz-target='column'></div>
+      <div class='column pb-2' data-quiz-target='column'></div>
     </div>
 
-    <div class='buttons'>
-      <button class="button is-primary mt-3" data-quiz-target='submit' data-action='quiz#submit'>Submit</button>
-      <button class="button is-link mt-3 is-hidden" data-quiz-target='restart' data-action='quiz#restart'>Try Again</button>
+    <div class='buttons mb-2'>
+      <button class="button is-primary" data-quiz-target='submit' data-action='quiz#submit'>Submit</button>
+      <button class="button is-link is-hidden" data-quiz-target='restart' data-action='quiz#restart'>Try Again</button>
     </div>
 
-    <div class="notification is-info is-hidden mt-3" data-quiz-target='results'></div>
+    <div class="notification is-info is-hidden" data-quiz-target='results'></div>
   </div>
 </section>
 </body>
