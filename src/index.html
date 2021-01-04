@@ -23,35 +23,25 @@
         <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='multiplication'>
           Multiplication
         </a>
-
         <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='division'>
           Division
         </a>
       </div>
       <div class="navbar-end">
+        <a class='navbar-item is-active' data-action='math#startPractice' data-math-target='practiceTab'>
+          <span class='icon is-small'><i class='fas fa-pencil-ruler'></i></span>
+          <span>Practice</span>
+        </a>
+        <a class='navbar-item' data-action='math#startTest' data-math-target='testTab'>
+          <span class='icon is-small'><i class='fas fa-apple-alt'></i></span>
+          <span>Test</span>
+        </a>
       </div>
     </div>
   </div>
 </nav>
-<section class='section'>
+<section class='section pt-3'>
   <div class='container'>
-    <div class='tabs is-toggle is-toggle-rounded'>
-      <ul>
-        <li class='is-active' data-math-target='practiceTab'>
-          <a data-action='math#startPractice'>
-            <span class='icon is-small'><i class='fas fa-pencil-ruler'></i></span>
-            <span>Practice</span>
-          </a>
-        </li>
-        <li data-math-target='testTab'>
-          <a data-action='math#startTest'>
-            <span class='icon is-small'><i class='fas fa-apple-alt'></i></span>
-            <span>Test</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
     <div data-controller='practice'>
       <div class='field'>
         <label data-practice-target='equation' class='label'>6 * 5</label>
