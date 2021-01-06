@@ -1,14 +1,11 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
-import { Multiplication } from './multiplication'
+
 export class EquationController extends Controller {
   static targets = ['problem', 'answer']
   static parent = 'quiz'
 
-  initialize() {
-    this.operation = new Multiplication()
-  }
-
-  connect() {
+  afterParentRegistration() {
+    this.switchOperation(this.parent.operationClass())
     this.generateProblem()
   }
 

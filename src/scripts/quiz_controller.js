@@ -20,6 +20,14 @@ export class QuizController extends Controller {
     this.element.classList.add('is-hidden')
   }
 
+  afterParentRegistration() {
+    this.switchOperation(this.operationClass())
+  }
+
+  operationClass() {
+    return this.parent.operationClass()
+  }
+
   switchOperation(OperationClass) {
     this.equationChildren.forEach((equation) =>
       equation.switchOperation(OperationClass)

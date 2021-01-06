@@ -1,15 +1,11 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
-import { Multiplication } from './multiplication'
 
 export class PracticeController extends Controller {
   static parent = 'math'
   static targets = ['answer', 'equation', 'result']
 
-  initialize() {
-    this.operation = new Multiplication()
-  }
-
-  connect() {
+  afterParentRegistration() {
+    this.switchOperation(this.parent.operationClass())
     this.generateProblem()
   }
 
@@ -57,7 +53,7 @@ export class PracticeController extends Controller {
     this.resultTarget.classList.replace('is-danger', 'is-success')
     setTimeout(() => {
       this.resultTarget.classList.add('is-hidden')
-      this.connect()
+      this.generateProblem()
     }, 1000)
   }
 
