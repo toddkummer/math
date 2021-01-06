@@ -14,7 +14,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      inject: true,
+      inject: 'head',
       chunks: ['application'],
       filename: 'index.html',
     }),
