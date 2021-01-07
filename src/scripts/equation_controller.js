@@ -5,12 +5,12 @@ export class EquationController extends Controller {
   static parent = 'quiz'
 
   afterParentRegistration() {
-    this.switchOperation(this.parent.operationClass())
-    this.generateProblem()
+    this.switchOperation(this.parent.operationConfig())
   }
 
-  switchOperation(OperationClass) {
-    this.operation = new OperationClass()
+  switchOperation(operationConfig) {
+    this.operation = operationConfig.newOperation()
+    this.generateProblem()
   }
 
   generateProblem() {

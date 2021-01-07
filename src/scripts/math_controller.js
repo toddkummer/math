@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
-import { Multiplication } from './multiplication'
-import { Division } from './division'
+import { OperationConfig } from './operation_config'
+import operations from '../data/operations.yml'
 
 export class MathController extends Controller {
   static targets = ['practiceTab', 'testTab', 'operationTab']
@@ -8,14 +8,14 @@ export class MathController extends Controller {
   static values = { operation: String }
   static children = ['practice', 'quiz']
 
-  static operations = { multiplication: Multiplication, division: Division }
+  static operationsConfig = OperationConfig.operationsConfigFromData(operations)
 
   connect() {
     this.toggleTabs()
   }
 
-  operationClass() {
-    return this.constructor.operations[this.operationValue]
+  operationConfig() {
+    return this.constructor.operationsConfig.get(this.operationValue)
   }
 
   startTest() {
@@ -35,8 +35,8 @@ export class MathController extends Controller {
 
   switchOperation(event) {
     this.operationValue = event.target.dataset.operation
-    this.practiceChild.switchOperation(this.operationClass())
-    this.quizChild.switchOperation(this.operationClass())
+    this.practiceChild.switchOperation(this.operationConfig())
+    this.quizChild.switchOperation(this.operationConfig())
     this.toggleTabs()
   }
 
