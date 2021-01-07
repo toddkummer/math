@@ -1,0 +1,5 @@
+multiplication:
+  className: 'Multiplication'
+  tabName: 'Multiplication'
+division:
+  className: 'Division'

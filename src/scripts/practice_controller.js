@@ -5,12 +5,11 @@ export class PracticeController extends Controller {
   static targets = ['answer', 'equation', 'result']
 
   afterParentRegistration() {
-    this.switchOperation(this.parent.operationClass())
-    this.generateProblem()
+    this.switchOperation(this.parent.operationConfig())
   }
 
-  switchOperation(OperationClass) {
-    this.operation = new OperationClass()
+  switchOperation(operationConfig) {
+    this.operation = operationConfig.newOperation()
     this.generateProblem()
   }
 

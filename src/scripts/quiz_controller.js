@@ -20,23 +20,18 @@ export class QuizController extends Controller {
     this.element.classList.add('is-hidden')
   }
 
-  afterParentRegistration() {
-    this.switchOperation(this.operationClass())
+  operationConfig() {
+    return this.parent.operationConfig()
   }
 
-  operationClass() {
-    return this.parent.operationClass()
-  }
-
-  switchOperation(OperationClass) {
+  switchOperation(operationConfig) {
     this.equationChildren.forEach((equation) =>
-      equation.switchOperation(OperationClass)
+      equation.switchOperation(operationConfig)
     )
     this.restart()
   }
 
   submit() {
-    console.log('Test has finished')
     let correct = 0
     this.equationChildren.forEach((equation) => {
       if (equation.correct()) {
