@@ -3,3 +3,5 @@ multiplication:
   tabName: 'Multiplication'
 division:
   className: 'Division'
+addition:
+  className: 'Addition'

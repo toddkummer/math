@@ -3,7 +3,13 @@ import { OperationConfig } from './operation_config'
 import operations from '../data/operations.yml'
 
 export class MathController extends Controller {
-  static targets = ['practiceTab', 'testTab', 'operationTab']
+  static targets = [
+    'practiceTab',
+    'testTab',
+    'operationTab',
+    'tabs',
+    'tabTemplate',
+  ]
 
   static values = { operation: String }
   static children = ['practice', 'quiz']
@@ -11,11 +17,30 @@ export class MathController extends Controller {
   static operationsConfig = OperationConfig.operationsConfigFromData(operations)
 
   connect() {
+    this.generateTabs()
     this.toggleTabs()
   }
 
   operationConfig() {
     return this.constructor.operationsConfig.get(this.operationValue)
+  }
+
+  generateTabs() {
+    if (!this.tabsGenerated) {
+      const template = this.tabTemplateTarget.content
+      console.log(template)
+      const tabs = this.tabsTarget
+      this.constructor.operationsConfig.forEach((operation) => {
+        const clone = template.cloneNode(true)
+        const tab = tabs.appendChild(clone)
+        console.log(tab)
+        tab.firstElementChild.textContent = 'gobears'
+        console.log(clone)
+        // clone.dataset.operation = operation.className
+      })
+
+      this.tabsGenerated = true
+    }
   }
 
   startTest() {
