@@ -28,15 +28,13 @@ export class MathController extends Controller {
   generateTabs() {
     if (!this.tabsGenerated) {
       const template = this.tabTemplateTarget.content
-      console.log(template)
       const tabs = this.tabsTarget
-      this.constructor.operationsConfig.forEach((operation) => {
+
+      this.constructor.operationsConfig.forEach((operation, key) => {
         const clone = template.cloneNode(true)
-        const tab = tabs.appendChild(clone)
-        console.log(tab)
-        tab.firstElementChild.textContent = 'gobears'
-        console.log(clone)
-        // clone.dataset.operation = operation.className
+        clone.firstElementChild.textContent = operation.tabName
+        clone.firstElementChild.dataset.operation = key
+        tabs.appendChild(clone)
       })
 
       this.tabsGenerated = true
