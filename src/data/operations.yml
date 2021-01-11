@@ -7,3 +7,6 @@ multiplication:
   tabName: 'Multiplication'
 division:
   className: 'Division'
+remainder_division:
+  className: 'RemainderDivision'
+  tabName: 'Remainder Division'

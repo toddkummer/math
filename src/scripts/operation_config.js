@@ -1,7 +1,8 @@
-import { Division } from './division'
-import { Multiplication } from './multiplication'
-import { Addition } from './addition'
-import { Subtraction } from './subtraction'
+import { Division } from './operations/division'
+import { Multiplication } from './operations/multiplication'
+import { Addition } from './operations/addition'
+import { Subtraction } from './operations/subtraction'
+import { RemainderDivision } from './operations/remainder_division'
 
 export class OperationConfig {
   static operationsConfigFromData(operations) {
@@ -10,7 +11,13 @@ export class OperationConfig {
     }, new Map())
   }
 
-  static classes = { Multiplication, Division, Addition, Subtraction }
+  static classes = {
+    Multiplication,
+    Division,
+    RemainderDivision,
+    Addition,
+    Subtraction,
+  }
 
   constructor(config) {
     this.config = config

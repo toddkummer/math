@@ -19,9 +19,7 @@ export class EquationController extends Controller {
   }
 
   correct() {
-    const element = this.answerTarget
-    const answer = parseInt(element.value)
-    return answer === this.operation.answer()
+    return this.operation.correctAnswer(this.answerTarget.value)
   }
 
   wrong() {

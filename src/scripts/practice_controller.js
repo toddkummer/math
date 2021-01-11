@@ -35,11 +35,10 @@ export class PracticeController extends Controller {
   }
 
   submit() {
-    const element = this.answerTarget
-    const answer = parseInt(element.value)
+    const answer = this.answerTarget.value
     this.resultTarget.classList.remove('is-hidden')
     this.answerTarget.value = ''
-    if (answer === this.operation.answer()) {
+    if (this.operation.correctAnswer(answer)) {
       this.correctAnswer()
     } else {
       this.wrongAnswer(answer)
@@ -47,7 +46,6 @@ export class PracticeController extends Controller {
   }
 
   correctAnswer() {
-    console.log(`Your answer is correct`)
     this.resultTarget.textContent = 'Correct Answer!'
     this.resultTarget.classList.replace('is-danger', 'is-success')
     setTimeout(() => {
@@ -57,7 +55,6 @@ export class PracticeController extends Controller {
   }
 
   wrongAnswer(answer) {
-    console.log(`Your answer is incorrect`)
     this.resultTarget.textContent = `The correct answer is ${this.operation.answer()}.     Your answer was ${answer}. `
     this.resultTarget.classList.replace('is-success', 'is-danger')
   }
