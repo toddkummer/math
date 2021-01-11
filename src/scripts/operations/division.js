@@ -1,4 +1,6 @@
-export class Division {
+import { Operation } from './operation'
+
+export class Division extends Operation {
   description() {
     return `${this.dividend} / ${this.divisor}`
   }
@@ -8,10 +10,6 @@ export class Division {
     this.divisor = this.randomNumber()
     this.quotient = this.randomNumber()
     this.dividend = this.divisor * this.quotient
-  }
-
-  randomNumber() {
-    return Math.floor(Math.random() * 10) + 1
   }
 
   answer() {
