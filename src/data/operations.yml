@@ -1,3 +1,7 @@
+addition:
+  className: 'Addition'
+subtraction:
+  className: 'Subtraction'
 multiplication:
   className: 'Multiplication'
   tabName: 'Multiplication'
