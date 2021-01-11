@@ -19,13 +19,12 @@
       </a>
     </div>
     <div class="navbar-menu" data-navigation-bar-target="menu">
-      <div class="navbar-start">
-        <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='multiplication'>
-          Multiplication
-        </a>
-        <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation='division'>
-          Division
-        </a>
+      <div class="navbar-start" data-math-target='tabs'>
+        <template data-math-target='tabTemplate'>
+          <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation>
+            Operation
+          </a>
+        </template>
       </div>
       <div class="navbar-end">
         <a class='navbar-item is-active' data-action='math#startPractice' data-math-target='practiceTab'>
