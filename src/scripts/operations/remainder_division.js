@@ -7,8 +7,8 @@ export class RemainderDivision extends Operation {
 
   // dividend / divisor = quotient
   init() {
-    this.divisor = this.randomNumber(10)
-    this.quotient = this.randomNumber(10)
+    this.divisor = this.randomNumber(this.settings.factorRange)
+    this.quotient = this.randomNumber(this.settings.factorRange)
     this.remainder = this.randomNumber(this.divisor) - 1
     this.dividend = this.divisor * this.quotient + this.remainder
   }

@@ -6,8 +6,8 @@ export class Multiplication extends Operation {
   }
 
   init() {
-    this.a = this.randomNumber()
-    this.b = this.randomNumber()
+    this.a = this.randomNumber(this.settings.factorRange)
+    this.b = this.randomNumber(this.settings.factorRange)
   }
 
   answer() {

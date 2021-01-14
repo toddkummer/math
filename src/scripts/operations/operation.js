@@ -1,4 +1,8 @@
 export class Operation {
+  constructor(settings) {
+    this.settings = settings
+  }
+
   randomNumber(range) {
     range = range || 10
     return Math.floor(Math.random() * range) + 1
