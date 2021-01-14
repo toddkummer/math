@@ -6,8 +6,8 @@ export class Addition extends Operation {
   }
 
   init() {
-    this.a = this.randomNumber(100)
-    this.b = this.randomNumber(100)
+    this.a = this.randomNumber(this.settings.addendRange)
+    this.b = this.randomNumber(this.settings.addendRange)
   }
 
   answer() {

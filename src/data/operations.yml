@@ -1,12 +1,23 @@
 addition:
   className: 'Addition'
+  parameters:
+    addendRange: 100
 subtraction:
   className: 'Subtraction'
+  parameters:
+    subtrahendRange: 100
+    differenceRange: 100
 multiplication:
   className: 'Multiplication'
   tabName: 'Multiplication'
+  parameters:
+    factorRange: 12
 division:
   className: 'Division'
+  parameters:
+    factorRange: 12
 remainder_division:
   className: 'RemainderDivision'
   tabName: 'Remainder Division'
+  parameters:
+    factorRange: 10

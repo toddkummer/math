@@ -7,8 +7,8 @@ export class Subtraction extends Operation {
 
   // minuend - subtrahend = difference
   init() {
-    this.subtrahend = this.randomNumber(100)
-    this.difference = this.randomNumber(100)
+    this.subtrahend = this.randomNumber(this.settings.subtrahendRange)
+    this.difference = this.randomNumber(this.settings.differenceRange)
     this.minuend = this.subtrahend + this.difference
   }
 

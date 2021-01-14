@@ -32,6 +32,6 @@ export class OperationConfig {
   }
 
   newOperation() {
-    return new OperationConfig.classes[this.className]()
+    return new OperationConfig.classes[this.className](this.config.parameters)
   }
 }
