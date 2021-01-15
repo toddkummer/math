@@ -31,7 +31,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
-    "stimulus-repo": "toddkummer/stimulus#parent-child-controllers",
+    "stimulus-repo": "toddkummer/stimulus#4ae6c98",
     "style-loader": "^2.0.0",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0",

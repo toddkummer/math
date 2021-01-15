@@ -10370,9 +10370,9 @@ static-extend@^0.1.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
-stimulus-repo@toddkummer/stimulus#parent-child-controllers:
+stimulus-repo@toddkummer/stimulus#4ae6c98:
   version "0.0.0"
-  resolved "https://codeload.github.com/toddkummer/stimulus/tar.gz/0e9fa132ba6591588b0254195052febf445762d1"
+  resolved "https://codeload.github.com/toddkummer/stimulus/tar.gz/4ae6c987c744f20040140d36d80530ef97dd67e1"
   dependencies:
     "@rollup/plugin-node-resolve" "^9.0.0"
     "@types/qunit" "^2.9.0"
