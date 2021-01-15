@@ -1,6 +1,6 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
-import { OperationConfig } from './operation_config'
-import operations from '../data/operations.yml'
+import { OperationConfig } from '../operation_config'
+import operations from '../../data/operations.yml'
 
 export class MathController extends Controller {
   static targets = [
