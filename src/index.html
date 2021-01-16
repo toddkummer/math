@@ -8,6 +8,7 @@
 <body>
 <nav class="navbar is-info" role="navigation" aria-label="main navigation" data-controller='navigation-bar' data-navigation-bar-operation-value='multiplication'>
   <div class='container'>
+
     <div class="navbar-brand">
       <div class="navbar-item has-text-weight-bold is-size-4">
         Math Time
@@ -18,14 +19,22 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
+
     <div class="navbar-menu" data-navigation-bar-target="menu">
       <div class="navbar-start" data-navigation-bar-target='tabs'>
-        <template data-navigation-bar-target='tabTemplate'>
+        <template data-navigation-bar-target='itemTemplate'>
           <a data-action='navigation-bar#switchOperation' data-navigation-bar-target='operationTab' class="navbar-item" data-operation>
             Operation
           </a>
         </template>
+        <template data-navigation-bar-target='dropdownTemplate'>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"></a>
+            <div class="navbar-dropdown"></div>
+          </div>
+        </template>
       </div>
+
       <div class="navbar-end">
         <a class='navbar-item is-active' data-action='navigation-bar#startPractice' data-navigation-bar-target='practiceTab'>
           <span class='icon is-small'><i class='fas fa-pencil-ruler'></i></span>
@@ -36,6 +45,7 @@
           <span>Test</span>
         </a>
       </div>
+
     </div>
   </div>
 </nav>

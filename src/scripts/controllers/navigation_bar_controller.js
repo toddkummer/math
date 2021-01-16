@@ -1,6 +1,7 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
 import { OperationConfig } from '../operation_config'
-import operations from '../../data/operations.yml'
+import configuration from '../../data/operations.yml'
+import { MenuBuilder } from '../menu_bulder'
 
 export class NavigationBarController extends Controller {
   static targets = [
@@ -10,13 +11,16 @@ export class NavigationBarController extends Controller {
     'testTab',
     'operationTab',
     'tabs',
-    'tabTemplate',
+    'itemTemplate',
+    'dropdownTemplate',
   ]
 
   static values = { operation: String }
   static siblings = ['practice', 'quiz']
 
-  static operationsConfig = OperationConfig.operationsConfigFromData(operations)
+  static operationsConfig = OperationConfig.operationsConfigFromData(
+    configuration.operations
+  )
 
   connect() {
     this.generateTabs()
@@ -29,16 +33,12 @@ export class NavigationBarController extends Controller {
 
   generateTabs() {
     if (!this.tabsGenerated) {
-      const template = this.tabTemplateTarget.content
-      const tabs = this.tabsTarget
-
-      this.constructor.operationsConfig.forEach((operation, key) => {
-        const clone = template.cloneNode(true)
-        clone.firstElementChild.textContent = operation.tabName
-        clone.firstElementChild.dataset.operation = key
-        tabs.appendChild(clone)
-      })
-
+      const { navigation } = configuration
+      new MenuBuilder(
+        this.tabsTarget,
+        this.itemTemplateTarget.content,
+        this.dropdownTemplateTarget.content
+      ).build(navigation)
       this.tabsGenerated = true
     }
   }

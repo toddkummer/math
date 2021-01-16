@@ -1,23 +1,71 @@
-addition:
-  className: 'Addition'
-  parameters:
-    addendRange: 100
-subtraction:
-  className: 'Subtraction'
-  parameters:
-    subtrahendRange: 100
-    differenceRange: 100
-multiplication:
-  className: 'Multiplication'
-  tabName: 'Multiplication'
-  parameters:
-    factorRange: 12
-division:
-  className: 'Division'
-  parameters:
-    factorRange: 12
-remainder_division:
-  className: 'RemainderDivision'
-  tabName: 'Remainder Division'
-  parameters:
-    factorRange: 10
+operations:
+  addition:
+    className: 'Addition'
+    parameters:
+      addendRange: 100
+  addition_drill:
+    className: 'Addition'
+    parameters:
+      addendRange: 12
+  subtraction:
+    className: 'Subtraction'
+    parameters:
+      subtrahendRange: 100
+      differenceRange: 100
+  subtraction_drill:
+    className: 'Subtraction'
+    parameters:
+      subtrahendRange: 12
+      differenceRange: 12
+  multiplication:
+    className: 'Multiplication'
+    parameters:
+      factorRange: 100
+  multiplication_drill:
+    className: 'Multiplication'
+    parameters:
+      factorRange: 12
+  division:
+    className: 'Division'
+    parameters:
+      divisorRange: 9
+      quotientRange: 100
+  division_drill:
+    className: 'Division'
+    parameters:
+      divisorRange: 12
+  remainder_division:
+    className: 'RemainderDivision'
+    parameters:
+      factorRange: 10
+navigation:
+  - type: 'dropdown'
+    name: 'Addition'
+    items:
+      - name: 'Drill'
+        operation: addition_drill
+      - name: 'Challenge'
+        operation: addition
+  - type: 'dropdown'
+    name: 'Subtraction'
+    items:
+      - name: 'Drill'
+        operation: subtraction_drill
+      - name: 'Challenge'
+        operation: subtraction
+  - type: 'dropdown'
+    name: 'Multiplication'
+    items:
+      - name: 'Drill'
+        operation: multiplication_drill
+      - name: 'Challenge'
+        operation: multiplication
+  - type: 'dropdown'
+    name: 'Division'
+    items:
+      - name: 'Drill'
+        operation: division_drill
+      - name: 'Challenge'
+        operation: division
+      - name: 'Remainder Division'
+        operation: remainder_division
