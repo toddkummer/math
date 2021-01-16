@@ -7,8 +7,10 @@ export class Division extends Operation {
 
   // dividend / divisor = quotient
   init() {
-    this.divisor = this.randomNumber(this.settings.factorRange)
-    this.quotient = this.randomNumber(this.settings.factorRange)
+    this.divisor = this.randomNumber(this.settings.divisorRange)
+    this.quotient = this.randomNumber(
+      this.settings.quotientRange || this.settings.divisorRange
+    )
     this.dividend = this.divisor * this.quotient
   }
 
