@@ -9,7 +9,7 @@ export class QuizController extends Controller {
     'restart',
   ]
 
-  static parent = 'math'
+  static siblings = ['navigationBar']
   static children = ['equation']
 
   show() {
@@ -21,7 +21,7 @@ export class QuizController extends Controller {
   }
 
   operationConfig() {
-    return this.parent.operationConfig()
+    return this.navigationBarSibling.operationConfig()
   }
 
   switchOperation(operationConfig) {

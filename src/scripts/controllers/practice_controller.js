@@ -1,11 +1,11 @@
 import { Controller } from 'stimulus-repo/packages/stimulus'
 
 export class PracticeController extends Controller {
-  static parent = 'math'
+  static siblings = ['navigationBar']
   static targets = ['answer', 'equation', 'result']
 
-  afterParentRegistration() {
-    this.switchOperation(this.parent.operationConfig())
+  afterNavigationBarSiblingRegistration() {
+    this.switchOperation(this.navigationBarSibling.operationConfig())
   }
 
   switchOperation(operationConfig) {
