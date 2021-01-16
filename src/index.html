@@ -5,8 +5,8 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <title>Math Time</title>
 </head>
-<body data-controller='math' data-math-operation-value='multiplication'>
-<nav class="navbar is-info" role="navigation" aria-label="main navigation" data-controller='navigation-bar'>
+<body>
+<nav class="navbar is-info" role="navigation" aria-label="main navigation" data-controller='navigation-bar' data-navigation-bar-operation-value='multiplication'>
   <div class='container'>
     <div class="navbar-brand">
       <div class="navbar-item has-text-weight-bold is-size-4">
@@ -19,19 +19,19 @@
       </a>
     </div>
     <div class="navbar-menu" data-navigation-bar-target="menu">
-      <div class="navbar-start" data-math-target='tabs'>
-        <template data-math-target='tabTemplate'>
-          <a data-action='math#switchOperation' data-math-target='operationTab' class="navbar-item" data-operation>
+      <div class="navbar-start" data-navigation-bar-target='tabs'>
+        <template data-navigation-bar-target='tabTemplate'>
+          <a data-action='navigation-bar#switchOperation' data-navigation-bar-target='operationTab' class="navbar-item" data-operation>
             Operation
           </a>
         </template>
       </div>
       <div class="navbar-end">
-        <a class='navbar-item is-active' data-action='math#startPractice' data-math-target='practiceTab'>
+        <a class='navbar-item is-active' data-action='navigation-bar#startPractice' data-navigation-bar-target='practiceTab'>
           <span class='icon is-small'><i class='fas fa-pencil-ruler'></i></span>
           <span>Practice</span>
         </a>
-        <a class='navbar-item' data-action='math#startTest' data-math-target='testTab'>
+        <a class='navbar-item' data-action='navigation-bar#startTest' data-navigation-bar-target='testTab'>
           <span class='icon is-small'><i class='fas fa-apple-alt'></i></span>
           <span>Test</span>
         </a>
