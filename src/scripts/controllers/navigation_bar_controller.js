@@ -63,6 +63,7 @@ export class NavigationBarController extends Controller {
     this.practiceSibling.switchOperation(this.operationConfig())
     this.quizSibling.switchOperation(this.operationConfig())
     this.toggleTabs()
+    this.inactivateDropdown(event.target)
   }
 
   toggle(event) {
@@ -79,5 +80,19 @@ export class NavigationBarController extends Controller {
         tab.classList.remove('is-active')
       }
     })
+  }
+
+  inactivateDropdown(item) {
+    const dropdown = item.closest('div.navbar-item.has-dropdown')
+    if (dropdown) {
+      dropdown.classList.toggle('is-hoverable')
+      setTimeout(
+        (dropdown) => {
+          dropdown.classList.toggle('is-hoverable')
+        },
+        100,
+        dropdown
+      )
+    }
   }
 }
