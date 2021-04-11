@@ -55,7 +55,7 @@ export class PracticeController extends Controller {
   }
 
   wrongAnswer(answer) {
-    this.resultTarget.textContent = `The correct answer is ${this.operation.answer()}.     Your answer was ${answer}. `
+    this.resultTarget.textContent = `The correct answer is ${this.operation.formattedAnswer()}. Your answer was ${answer}. `
     this.resultTarget.classList.replace('is-success', 'is-danger')
   }
 }
