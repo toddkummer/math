@@ -17,6 +17,10 @@ export class RemainderDivision extends Operation {
     return `${this.quotient} r ${this.remainder}`
   }
 
+  formattedAnswer() {
+    return this.answer()
+  }
+
   correctAnswer(answer) {
     const [answerQuotient, answerRemainder] = answer
       .split('r')
